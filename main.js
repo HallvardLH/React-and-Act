@@ -189,17 +189,9 @@ function newTurn() {
       gameFinished();
     } else {
       turns = 0;
-      if(Math.random() < 0.8) {
-        //admob.requestInterstitialAd(); // 80% chance of ad
-        console.log('turn ad')
-      }
     }
   } else {
     turns++;
-    if(Math.random() < 0.1) {
-      //admob.requestInterstitialAd(); // 10% chance of ad
-      console.log('ad')
-    }
   }
   if(roundsPlayed != rounds) {
     menuSwitch('turn');
@@ -243,7 +235,7 @@ var string = ''
   while(namesOnList <= players) {
     for(var i = 0; i < players; i++) {
       if(window['player' + i].score == iterations) {
-        string += window['player' + i].name + ':' + window['player' + i].score + '<br />';
+        string += window['player' + i].name + ': ' + window['player' + i].score + '<br />';
         namesOnList++;
 
         if(firstAddition) {
