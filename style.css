@@ -1,0 +1,54 @@
+* {
+  color:white;
+  font-family:Montserrat;
+  transition: all 4s ease-in-out;
+}
+
+body {
+  text-align: center;
+  background-color:#00afbf;
+}
+
+button, input {
+  border-width:0px;
+  border-radius: 8px;
+  font-size: 10vw;
+  margin:5%;
+  width:80%;
+  color:white;
+  filter:brightness(1.05);
+  background-color:#00afbf;
+}
+
+button {
+  padding:4%;
+}
+
+.header, #header, #timer, #scoreSection {
+  font-size: 13vw;
+}
+
+#scenarioText {
+  font-size: 13vw;
+  margin-top: 10%;
+}
+
+.gameMenu {
+  display:none;
+}
+
+.rules {
+  font-size: 8vw;
+}
+
+#displayedNames {
+  font-size: 9vw;
+}
+
+.name {
+  float:left;
+}
+
+.score {
+  float:right;
+}

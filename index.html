@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>React and Act!</title>
+	    <script type="text/javascript" charset="utf-8">
+              
+            function onDeviceReady() {
+              document.removeEventListener('deviceready', onDeviceReady, false);
+              
+              // Set AdMobAds options:
+              admob.setOptions({
+                publisherId:          "ca-app-pub-3989514379219446/1773976518",  // Required
+                interstitialAdId:     "ca-app-pub-3989514379219446/3303267333",  // Optional
+                tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
+                tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
+                tappxShare:           0                                          // Optional
+              });
+              
+              // Start showing banners (atomatic when autoShowBanner is set to true)
+              admob.createBannerView();
+              
+              // Request interstitial (will present automatically when autoShowInterstitial is set to true)
+              //admob.requestInterstitialAd();
+            }
+            
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+	    </script>
+        <link rel="shortcut icon" type="image/png" href="icon.png"/>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+      <div id="mainMenu">
+        <img style="height:50vw; width:65vw;" src="buskin.png">
+        <section class="header">REACT & ACT!</section>
+        <button class="gameButton" onclick="start()">Play</button>
+        <button class="gameButton" onclick="menuSwitch('how')">How to play</button>
+<!--         <button class="gameButton">Create your own scenarios</button> -->
+      </div>
+
+      <div id="how" class="gameMenu">
+        <section class="header">The rules</section>
+        <span class="rules">One player is given a scenario that they have to react to, while the other players try to guess what the scenario is. The player has to use his emotions and body to act out the scenario, no speaking allowed. If a player is able to guess the scenario before the time rouns out, the acting player gets 1 point and the player that guessed correctly gets 2 points. If no one is able to guess it, no points are given. </span>
+        <button class="gameButton" onclick="menuSwitch('mainMenu')">Back</button>
+      </div>
+
+      <div id="create" class="gameMenu">
+
+      </div>
+
+      <div id="names" class="gameMenu">
+        <h2 style="font-size: 11vw;" class="header">Who is playing?</h2>
+        Enter the names of all players
+        <input style="width:60%; padding:2.5%; margin:1%;" class="gameButton" id="playerNameInput">
+        <button style="width:28%; margin:1%;" class="gameButton" id="addPlayer" onclick="addPlayer();">Add</button>
+        <secton id="nameAnchor"></secton>
+        <button class="gameButton" onclick="namesComplete();">Next</button>
+        <section id="noticeAnchor"></section>
+      </div>
+
+      <div id="rounds" class="gameMenu">
+        <h2 class="header">How many rounds?</h2>
+        <button class="gameButton" onclick="addRounds(1)">One</button><button class="gameButton" onclick="addRounds(2)">Two</button><button class="gameButton" onclick="addRounds(3)">Three</button><button class="gameButton" onclick="addRounds(4)">Four</button>
+      </div>
+
+      <div id="turn" class="gameMenu">
+        <section id="turnAnchor"></section>
+        <button class="gameButton" onclick="menuSwitch('scenario'), createScenario();">Tap to show your scenario!</button>
+      </div>
+
+      <div id="scenario" class="gameMenu">
+        <section id="scenarioAnchor"></section>
+        <br />
+        <div id="timer"></div>
+        <br />
+        <button class="gameButton"  onclick="end()">End round</button>
+        <br />
+        (Tap if someone got it)
+      </div>
+
+      <div id="timeUp" class="gameMenu">
+        <h2 class="header">Time's up!</h2>
+        <div style="font-size:8vw;">Did anyone get it?</div>
+        <button class="gameButton" onclick="menuSwitch('who'), endScenario();">Yes!</button>
+        <button class="gameButton" onclick="menuSwitch('score'), endScenario(), createScoreboard()">Nope!</button>
+      </div>
+
+      <div id="who" class="gameMenu">
+        <h2 class="header">Who?</h2>
+        <section id="buttonAnchor"></section>
+      </div>
+
+      <div id="score" class="gameMenu">
+        <section id="scoreAnchor"></section>
+        <button class="gameButton" onclick="newTurn();">Next round</button>
+      </div>
+
+      <div id="last" class="gameMenu">
+        <section id="winnerAnchor"></section>
+        <button class="gameButton" onclick="resetGame(), menuSwitch('mainMenu');">Main menu</button>
+      </div>
+
+    </body>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="main.js"></script>
+</html>
