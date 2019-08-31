@@ -4,30 +4,6 @@
     	<meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <title>React and Act!</title>
-	    <script type="text/javascript" charset="utf-8">
-              
-            function onDeviceReady() {
-              document.removeEventListener('deviceready', onDeviceReady, false);
-              
-              // Set AdMobAds options:
-              admob.setOptions({
-                publisherId:          "ca-app-pub-3989514379219446/1773976518",  // Required
-                interstitialAdId:     "ca-app-pub-3989514379219446/3303267333",  // Optional
-                tappxIdiOS:           "/XXXXXXXXX/Pub-XXXX-iOS-IIII",            // Optional
-                tappxIdAndroid:       "/XXXXXXXXX/Pub-XXXX-Android-AAAA",        // Optional
-                tappxShare:           0                                          // Optional
-              });
-              
-              // Start showing banners (atomatic when autoShowBanner is set to true)
-              admob.createBannerView();
-              
-              // Request interstitial (will present automatically when autoShowInterstitial is set to true)
-              //admob.requestInterstitialAd();
-            }
-            
-            document.addEventListener("deviceready", onDeviceReady, false);
-
-	    </script>
         <link rel="shortcut icon" type="image/png" href="icon.png"/>
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
@@ -38,7 +14,6 @@
         <section class="header">REACT & ACT!</section>
         <button class="gameButton" onclick="start()">Play</button>
         <button class="gameButton" onclick="menuSwitch('how')">How to play</button>
-<!--         <button class="gameButton">Create your own scenarios</button> -->
       </div>
 
       <div id="how" class="gameMenu">
@@ -104,6 +79,5 @@
       </div>
 
     </body>
-    <script type="text/javascript" src="cordova.js"></script>
     <script src="main.js"></script>
 </html>
